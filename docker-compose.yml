@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  spherex-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: spherex-planet-x
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - spherex_cache:/app/backend/data/cache
+    restart: unless-stopped
+
+volumes:
+  spherex_cache:
+    driver: local
