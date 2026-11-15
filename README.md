@@ -12,6 +12,32 @@
 
 ---
 
+## 🎯 NASA Space Apps Challenge Overview
+
+### 1. What did we develop?
+We developed **Sol-9**, an open-source, full-stack astronomical observatory and citizen science web platform designed to uncover Planet X candidates, ultracool brown dwarfs, and variable stars in NASA’s SPHEREx all-sky survey. Sol-9 features a 60-FPS HTML5 time-series blinking engine inspired by WiseView, an on-the-fly 102-band near-infrared aperture photometry extractor (0.75–5.0 µm) with automated molecular absorption classification, synchronized Aladin Lite v3 WebAssembly sky maps, and multi-mission astrometric overlays.
+
+### 2. How does it address the challenge?
+Sol-9 directly implements official NASA Space Apps resources and data workflows:
+- **Direct IRSA SIA2 Integration:** Queries NASA/IPAC IRSA Simple Image Access v2 endpoints to retrieve multi-epoch SPHEREx Multi-Extension FITS (MEF) cutouts.
+- **Sub-Pixel WCS Reprojection:** Reprojects all epochs onto a common North-up, East-left WCS footprint so background stars stay locked in place while moving objects shift across epochs.
+- **Epoch-minus-Reference Difference Imaging:** Computes pixel-by-pixel difference frames (`Epoch_i - Ref_Stack`) to reveal faint moving Planet X candidates and asteroids as distinct black-and-white dipoles.
+- **Multi-Mission Validation:** Cross-correlates targets against ESA Gaia DR3 proper-motion vectors, NASA AllWISE (~2010.5) historical baselines, and CSA NEOSSat asteroid cones.
+- **102-Band Photometry & Diagnostics:** Performs on-the-fly circular aperture photometry across all 100 active channels to detect diagnostic methane ($\text{CH}_4$), water vapor ($\text{H}_2\text{O}$), and $\text{CO}$ absorption bands.
+
+### 3. Why is it important?
+Discovering elusive Trans-Neptunian Objects and cold Y-dwarfs ($T \sim 250\text{ K}$) requires bridging heavy scientific computing with accessible, real-time visualization:
+- **Democratizing Petabyte-Scale Science:** Removes the barrier of multi-gigabyte FITS downloads; citizen scientists and researchers can explore and blink the sky directly in their browser.
+- **Accelerating Discoveries:** Combines high-speed difference imaging with instant atmospheric spectroscopy to eliminate false positives and confirm moving substellar bodies.
+- **Open Collaboration:** Provides a zero-install, URL-synced platform to unite professional astrophysicists and citizen scientists worldwide in solving the mystery of the outer Solar System.
+
+### 👥 Team Members
+- **Pratyush Kulshreshtha**
+- **Monish Monnat**
+- **Akshat Indurakhya**
+
+---
+
 ## 🛰️ Official Challenge Resources & Data Sources
 
 This application implements workflows and interfaces directly following the official NASA, ESA, and CSA mission datasets:
